@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+*{   /* use to select all the elements in css */
+    box-sizing: border-box; /* box-sizing allow us to include the padding and border in an elements total width and height  used to display all boxes of same size*/
+}
+
+body{
+    font-family: 'Lobster', cursive;
+    display: flex;  /*by using flex in parent element ,child elements automatically align like columns or rows with  width and height*/
+    align-items: center; /* default alignment for items inside flexible container */
+    justify-content: center; /* control alignment of all items on main axis */
+    height: 100vh; /* it means initial body height will take 100% of viewport height */
+    overflow: hidden; /* this property specifies whether to clip the content or to add scrollbars when the content is too big to fit in the specified area */
+    margin:0;
+}
+
+ .container{
+    display: flex;
+    width: 90vw; /* Viewport Width it works like percentage unit 1vw = 1% */
+}
+
+.panel{
+    background-size: cover; /* this property specifies the size of the background images */
+    background-position: center;
+    background-repeat: no-repeat; /*this property set how a background image will be repeated */
+    height: 80vh;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    flex: 0.5; /* number specifies how much item will shrink relative to the rest of flexible items */
+    margin: 10px;
+    position: relative; /* an element is position relative to normal position */
+    transition: flex 0.7s ease-in;
+}
+
+.panel h3{
+    font-size: 24px;
+    position: absolute; /* It is positioned relative to nearest positioned ancestor */
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0; /* it specifies the transparency of an element */
+}
+
+.panel.active{
+    flex: 5;
+    opacity: 1;
+    transition:opacity 0.3s ease-in 0.4s; /* it is used to smoothly change the opacity from one level to another state i.e opaque to transparent with a defined time duration ease specifies a transition effect with a slow start then fast then end slowly*/
+}
+
+.panel.active h3{
+    opacity: 1;
+}
+
+@media(max-width:480px){
+    .container{
+        width: 100vw;
+    }
+
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5){
+        display: none;
+    }
+}
